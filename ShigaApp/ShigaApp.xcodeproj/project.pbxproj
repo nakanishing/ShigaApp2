@@ -119,6 +119,14 @@
 		998F61871644044200FBF4CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 998F61861644044200FBF4CB /* AppDelegate.m */; };
 		998F618A1644044200FBF4CB /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 998F61891644044200FBF4CB /* RootViewController.m */; };
 		998F618D1644044200FBF4CB /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 998F618C1644044200FBF4CB /* HelloWorldLayer.m */; };
+		99C2A483164BEF14001019BA /* fish3.png in Resources */ = {isa = PBXBuildFile; fileRef = 99C2A482164BEF14001019BA /* fish3.png */; };
+		99C635AB1644A19C0021B415 /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C635AA1644A19C0021B415 /* MainLayer.m */; };
+		99C635AE1644A2120021B415 /* biwako.png in Resources */ = {isa = PBXBuildFile; fileRef = 99C635AC1644A2120021B415 /* biwako.png */; };
+		99C635AF1644A2120021B415 /* biwako.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 99C635AD1644A2120021B415 /* biwako.tmx */; };
+		99C635B1164AA55E0021B415 /* fish1.png in Resources */ = {isa = PBXBuildFile; fileRef = 99C635B0164AA55E0021B415 /* fish1.png */; };
+		99C635B3164AAB020021B415 /* fish2.png in Resources */ = {isa = PBXBuildFile; fileRef = 99C635B2164AAB020021B415 /* fish2.png */; };
+		99E28366164C86A00040FD52 /* ForeignFish.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E28365164C86A00040FD52 /* ForeignFish.m */; };
+		99E2836A165288460040FD52 /* BaseAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E28369165288460040FD52 /* BaseAttributes.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -347,6 +355,17 @@
 		998F618B1644044200FBF4CB /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
 		998F618C1644044200FBF4CB /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		998F618E1644044200FBF4CB /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
+		99C2A482164BEF14001019BA /* fish3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fish3.png; path = Resources/fish3.png; sourceTree = "<group>"; };
+		99C635A91644A19C0021B415 /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLayer.h; sourceTree = "<group>"; };
+		99C635AA1644A19C0021B415 /* MainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLayer.m; sourceTree = "<group>"; };
+		99C635AC1644A2120021B415 /* biwako.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = biwako.png; path = Resources/biwako.png; sourceTree = "<group>"; };
+		99C635AD1644A2120021B415 /* biwako.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = biwako.tmx; path = Resources/biwako.tmx; sourceTree = "<group>"; };
+		99C635B0164AA55E0021B415 /* fish1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fish1.png; path = Resources/fish1.png; sourceTree = "<group>"; };
+		99C635B2164AAB020021B415 /* fish2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fish2.png; path = Resources/fish2.png; sourceTree = "<group>"; };
+		99E28364164C86A00040FD52 /* ForeignFish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForeignFish.h; sourceTree = "<group>"; };
+		99E28365164C86A00040FD52 /* ForeignFish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForeignFish.m; sourceTree = "<group>"; };
+		99E28368165288460040FD52 /* BaseAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAttributes.h; sourceTree = "<group>"; };
+		99E28369165288460040FD52 /* BaseAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAttributes.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,6 +432,12 @@
 				998F60451644043F00FBF4CB /* Resources */,
 				998F605D1644043F00FBF4CB /* libs */,
 				998F61811644044200FBF4CB /* Supporting Files */,
+				99C635A91644A19C0021B415 /* MainLayer.h */,
+				99C635AA1644A19C0021B415 /* MainLayer.m */,
+				99E28364164C86A00040FD52 /* ForeignFish.h */,
+				99E28365164C86A00040FD52 /* ForeignFish.m */,
+				99E28368165288460040FD52 /* BaseAttributes.h */,
+				99E28369165288460040FD52 /* BaseAttributes.m */,
 			);
 			path = ShigaApp;
 			sourceTree = "<group>";
@@ -420,6 +445,11 @@
 		998F60451644043F00FBF4CB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				99C2A482164BEF14001019BA /* fish3.png */,
+				99C635B2164AAB020021B415 /* fish2.png */,
+				99C635B0164AA55E0021B415 /* fish1.png */,
+				99C635AC1644A2120021B415 /* biwako.png */,
+				99C635AD1644A2120021B415 /* biwako.tmx */,
 				998F60461644043F00FBF4CB /* Default.png */,
 				998F60481644043F00FBF4CB /* Default@2x.png */,
 				998F604A1644043F00FBF4CB /* Default-568h@2x.png */,
@@ -764,6 +794,11 @@
 				998F60571644043F00FBF4CB /* Icon.png in Resources */,
 				998F60591644043F00FBF4CB /* Icon@2x.png in Resources */,
 				998F605C1644043F00FBF4CB /* iTunesArtwork in Resources */,
+				99C635AE1644A2120021B415 /* biwako.png in Resources */,
+				99C635AF1644A2120021B415 /* biwako.tmx in Resources */,
+				99C635B1164AA55E0021B415 /* fish1.png in Resources */,
+				99C635B3164AAB020021B415 /* fish2.png in Resources */,
+				99C2A483164BEF14001019BA /* fish3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -867,6 +902,9 @@
 				998F61871644044200FBF4CB /* AppDelegate.m in Sources */,
 				998F618A1644044200FBF4CB /* RootViewController.m in Sources */,
 				998F618D1644044200FBF4CB /* HelloWorldLayer.m in Sources */,
+				99C635AB1644A19C0021B415 /* MainLayer.m in Sources */,
+				99E28366164C86A00040FD52 /* ForeignFish.m in Sources */,
+				99E2836A165288460040FD52 /* BaseAttributes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -921,6 +959,7 @@
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
