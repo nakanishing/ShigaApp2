@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "GameConfig.h"
 #import "MainLayer.h"
+#import "DataModel.h"
 #import "RootViewController.h"
 
 @implementation AppDelegate
@@ -114,6 +115,11 @@
 	
 	// Run the intro Scene
 	[[CCDirector sharedDirector] runWithScene: [MainLayer scene]];
+    MainLayer *layer = [[[MainLayer scene] children] objectAtIndex:0];
+    
+    UITapGestureRecognizer *gestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:layer action:@selector(handlePanFrom:)] autorelease];
+    [viewController.view addGestureRecognizer:gestureRecognizer];
+    [[DataModel getModel] setGestureRecognizer:gestureRecognizer];
 }
 
 

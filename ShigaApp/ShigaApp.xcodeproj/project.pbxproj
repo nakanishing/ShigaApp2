@@ -120,6 +120,7 @@
 		998F618A1644044200FBF4CB /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 998F61891644044200FBF4CB /* RootViewController.m */; };
 		998F618D1644044200FBF4CB /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 998F618C1644044200FBF4CB /* HelloWorldLayer.m */; };
 		99C2A483164BEF14001019BA /* fish3.png in Resources */ = {isa = PBXBuildFile; fileRef = 99C2A482164BEF14001019BA /* fish3.png */; };
+		99C5C61C1663B063001B33A0 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C5C61B1663B063001B33A0 /* DataModel.m */; };
 		99C635AB1644A19C0021B415 /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C635AA1644A19C0021B415 /* MainLayer.m */; };
 		99C635AE1644A2120021B415 /* biwako.png in Resources */ = {isa = PBXBuildFile; fileRef = 99C635AC1644A2120021B415 /* biwako.png */; };
 		99C635AF1644A2120021B415 /* biwako.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 99C635AD1644A2120021B415 /* biwako.tmx */; };
@@ -356,6 +357,8 @@
 		998F618C1644044200FBF4CB /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		998F618E1644044200FBF4CB /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		99C2A482164BEF14001019BA /* fish3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fish3.png; path = Resources/fish3.png; sourceTree = "<group>"; };
+		99C5C61A1663B063001B33A0 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
+		99C5C61B1663B063001B33A0 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 		99C635A91644A19C0021B415 /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLayer.h; sourceTree = "<group>"; };
 		99C635AA1644A19C0021B415 /* MainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLayer.m; sourceTree = "<group>"; };
 		99C635AC1644A2120021B415 /* biwako.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = biwako.png; path = Resources/biwako.png; sourceTree = "<group>"; };
@@ -438,6 +441,8 @@
 				99E28365164C86A00040FD52 /* ForeignFish.m */,
 				99E28368165288460040FD52 /* BaseAttributes.h */,
 				99E28369165288460040FD52 /* BaseAttributes.m */,
+				99C5C61A1663B063001B33A0 /* DataModel.h */,
+				99C5C61B1663B063001B33A0 /* DataModel.m */,
 			);
 			path = ShigaApp;
 			sourceTree = "<group>";
@@ -905,6 +910,7 @@
 				99C635AB1644A19C0021B415 /* MainLayer.m in Sources */,
 				99E28366164C86A00040FD52 /* ForeignFish.m in Sources */,
 				99E2836A165288460040FD52 /* BaseAttributes.m in Sources */,
+				99C5C61C1663B063001B33A0 /* DataModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

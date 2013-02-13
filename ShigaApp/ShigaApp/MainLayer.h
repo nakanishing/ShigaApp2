@@ -21,6 +21,9 @@
     
     // 外来魚が発生するポイント
     NSMutableArray *bornpoints;
+    
+    // コンボ数を表示するラベル
+    CCLabelTTF *cmbLabel;
 }
 
 @property(nonatomic, retain) CCTMXTiledMap *tilemap;

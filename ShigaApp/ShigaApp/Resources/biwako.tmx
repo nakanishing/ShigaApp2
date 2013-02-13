@@ -8,42 +8,37 @@
    H4sIAAAAAAAAAxXV07YYBgAAwZvGtm3btm3bamzbaGPbtm3baGzb6eRhPmHPXg4UEPBXQEBAYIIQlGAEJwQhCUVowhCWcIQnAhGJRGSiEJVoRCcGMYlFbOIQl3jEJwEJSURikpCUZCQnBSlJRWrSkJZ0pCcDGclEZrKQlWxkJwc5yUVu8pCXfOSnAAUpRGGKUJRiFKcEJSlFacpQlnKUpwIVqURlqlCValSnBjWpRW3qUJd61KcBDWlEY5rQlGY0pwUtaUVr2tCWv2lHezrQkU50pgtd6UZ3etCTXvSmD33pR38GMJBBDGYIQxnGcEYwklGMZgxjGcd4/uFfJjCRSUxmClOZxnRmMJNZzGYOc5nHfBawkEUsZglLWcZyVrCSVaxmDWtZx3o2sJFNbGYLW9nGdnawk13sZg972cd+DnCQQxzmCEc5xnFOcJJTnOYMZznHeS5wkUtc5gpXucZ1bnCTW9zmP+5wl3vc5wEPecRjnvCUZzznBS95xWve8JZ3vOcDH/nEZ77wlW985wc/+cVvArQf6E//BCYIQQlGcEIQklCEJgxhCUd4IhCRSEQmClGJRnRiEJNYxCYOcYlHfBKQkEQkJglJSUZyUpCSVKQmDWlJR3oykJFMZCYLWclGdnKQk1zkJg95yUd+ClCQQhSmCEUpRnFKUJJSlKYMZSlHeSpQkUpUpgpVqUZ1alCTWtSmDnWpR30a0JBGNKYJTWlGc1rQkla0pg1t+Zt2tKcDHelEZ7rQlW50pwc96UVv+tCXfvRnAAMZxGCGMJRhDGcEIxnFaMYwlnGM5x/+ZQITmcRkpjCVaUxnBjOZxWzmMJd5zGcBC1nEYpawlGUsZwUrWcVq1rCWdaxnAxvZxGa2sJVtbGcHO9nFbvawl33s5wAHOcRhjnCUYxznBCc5xWnOcJZznOcCF7nEZa5wlWtc5wY3ucVt/uMOd7nHfR7wkEc85glPecZzXvCSV7zmDW95x3s+8JFPfOYLX/nGd37wk1/85s/4A/EXgQlCUIIRnBCEJBShCUNYwhGeCEQkEpGJQlSiEZ0YxCQWsYlDXOIRnwQkJBGJSUJSkpGcFKQkFalJQ1rSkZ4MZCQTmclCVrKRnRzkJBe5yUNe8pGfAhSkEIUpQlGKUZwSlKQUpSlDWcpRngpUpBKVqUJVqlGdGvwPqn+G52AJAAA=
   </data>
  </layer>
- <objectgroup name="frames" width="30" height="20" visible="0">
-  <object x="376" y="76"/>
-  <object x="358" y="92"/>
-  <object x="339" y="90"/>
-  <object x="333" y="71"/>
-  <object x="315" y="86"/>
-  <object x="304" y="71"/>
-  <object x="288" y="84"/>
-  <object x="284" y="108"/>
-  <object x="271" y="129"/>
-  <object x="254" y="130"/>
-  <object x="232" y="129"/>
-  <object x="213" y="137"/>
-  <object x="195" y="146"/>
-  <object x="175" y="153"/>
-  <object x="161" y="173"/>
-  <object x="145" y="185" width="9" height="9"/>
+ <objectgroup name="frames" width="30" height="20">
+  <object x="356" y="98"/>
+  <object x="333" y="99"/>
+  <object x="311" y="87"/>
+  <object x="293" y="95"/>
+  <object x="294" y="117"/>
+  <object x="284" y="134"/>
+  <object x="263" y="139"/>
+  <object x="241" y="139"/>
+  <object x="220" y="144"/>
+  <object x="198" y="152"/>
+  <object x="177" y="163"/>
+  <object x="172" y="174"/>
+  <object x="151" y="181" width="9" height="9"/>
   <object x="136" y="200"/>
   <object x="118" y="204"/>
-  <object x="101" y="217"/>
+  <object x="107" y="213"/>
   <object x="99" y="225" width="6" height="20"/>
-  <object x="180" y="181"/>
-  <object x="203" y="186"/>
-  <object x="224" y="187"/>
-  <object x="245" y="181"/>
-  <object x="264" y="181"/>
-  <object x="280" y="189"/>
-  <object x="297" y="189"/>
-  <object x="316" y="186"/>
-  <object x="333" y="179"/>
-  <object x="349" y="171"/>
-  <object x="365" y="166"/>
-  <object x="378" y="157"/>
-  <object x="379" y="141"/>
-  <object x="363" y="129"/>
-  <object x="357" y="113"/>
+  <object x="198" y="173"/>
+  <object x="216" y="178"/>
+  <object x="231" y="171"/>
+  <object x="249" y="175"/>
+  <object x="270" y="174"/>
+  <object x="290" y="178"/>
+  <object x="308" y="181"/>
+  <object x="324" y="172"/>
+  <object x="339" y="167"/>
+  <object x="353" y="162"/>
+  <object x="363" y="152"/>
+  <object x="355" y="135"/>
+  <object x="352" y="120"/>
  </objectgroup>
  <objectgroup name="waypoints" width="30" height="20" visible="0">
   <object x="326" y="93"/>
