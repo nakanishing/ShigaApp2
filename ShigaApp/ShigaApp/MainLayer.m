@@ -63,9 +63,14 @@ int tempcombo = 0;
         cmbLabel.color = ccc3(0, 0, 0);
         
         CGSize winSize = [CCDirector sharedDirector].winSize;
-        NSLog(@"width: %f, height: %f", winSize.width, winSize.height);
         cmbLabel.position = ccp(winSize.width / 6, winSize.height / 6);
         [self addChild:cmbLabel z:5];
+        
+        // 点数表示
+        totalPointLabel = [[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%010d", 0] fontName:@"Marker Felt" fontSize:30] retain];
+        totalPointLabel.color = ccc3(0, 0, 0);
+        totalPointLabel.position = ccp(winSize.width - totalPointLabel.contentSize.width / 2, winSize.height - 10);
+        [self addChild:totalPointLabel z:6];
     }
 
     return self;
@@ -110,11 +115,13 @@ int tempcombo = 0;
     }
     
     // タップされた魚を消す（TODO 潰れる画像に差し替え）
-    for (CCSprite *fish in touchedFish) {
+    for (ForeignFish *fish in touchedFish) {
         [m.fishes removeObject:fish];
         [self removeChild:fish cleanup:YES];
+        
     }
     
+    // コンボ数表示
     if (tempcombo != m.combination) {
         tempcombo = m.combination;
         if (m.combination > 1) {
@@ -122,8 +129,11 @@ int tempcombo = 0;
             [cmbLabel setString:[NSString stringWithFormat:@"%icombo", m.combination]];
 
         }
-        
     }
+    
+    [totalPointLabel setString:[NSString stringWithFormat:@"%010d", m.totalPoint]];
+    
+    
     [reachedFish release];
 
 }
@@ -138,7 +148,7 @@ int tempcombo = 0;
     int waypointX = [[[waypoints objectAtIndex:waypointIndex] valueForKey:@"x"] intValue];
     int waypointY = [[[waypoints objectAtIndex:waypointIndex] valueForKey:@"y"] intValue];
     
-    CCSprite *fish = [Blackbass fish];
+    ForeignFish *fish = [Blackbass fish];
     fish.position = ccp(bornX, bornY);
     
     //TODO durationはレベルによって変更させる
@@ -163,19 +173,50 @@ int tempcombo = 0;
         
         // 魚をタップできたかの判定。
         DataModel *m = [DataModel getModel];
-        for (CCSprite *fish in [m fishes]) {
+        for (ForeignFish *fish in [m fishes]) {
             CGRect fishRect = CGRectMake(fish.position.x - (fish.contentSize.width / 2),
                                          fish.position.y - (fish.contentSize.height / 2),
                                          fish.contentSize.width * 0.8,
                                          fish.contentSize.height * 0.8);
             
             CGRect touchRect = CGRectMake(touchLocation.x, touchLocation.y, 10, 10);
+            
+            // 魚がタップされたときの処理を以下にまとめる
             if (CGRectIntersectsRect(fishRect, touchRect)) {
                 m.combination += 1;
+                m.totalPoint += [self calcPoints:fish];
+
                 [touchedFish addObject:fish];
             }
         }
     }
+}
+
+/**
+ * 点数を計算する
+ */
+- (int)calcPoints:(ForeignFish *)fish {
+    DataModel *m = [DataModel getModel];
+    int fishPoints = [fish availablePoints];
+    
+    int bonusPoints = 0;
+    if (10 <= m.combination && m.combination < 20) {
+        bonusPoints = m.combination * 2;
+    } else if (20 <= m.combination && m.combination < 30) {
+        bonusPoints = m.combination * 3;
+    } else if (30 <= m.combination && m.combination < 40) {
+        bonusPoints = m.combination * 5;
+    } else if (40 <= m.combination && m.combination < 50) {
+        bonusPoints = m.combination * 8;
+    } else if (50 <= m.combination && m.combination < 100) {
+        bonusPoints = m.combination * 10;
+    } else if (100 <= m.combination && m.combination < 200) {
+        bonusPoints = m.combination * 20;
+    } else if (200 <= m.combination) {
+        bonusPoints = m.combination * 50;
+    }
+        
+    return fishPoints + bonusPoints;
 }
 
 - (void)dealloc {

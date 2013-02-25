@@ -31,6 +31,7 @@ static DataModel *sharedContext = nil;
     if (self) {
         fishes = [[NSMutableArray alloc] init];
         combination = 0;
+        totalPoint = 0;
     }
     return self;
 }

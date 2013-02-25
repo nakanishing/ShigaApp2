@@ -16,6 +16,7 @@
 @synthesize totalHp;
 @synthesize lastWaypoint;
 @synthesize healthBar;
+@synthesize availablePoints;
 
 - (void)healthBarLogic:(ccTime)dt {
     healthBar.position = ccp(self.position.x, (self.position.y + 20));
@@ -23,6 +24,13 @@
     if(healthBar.percentage <=0) {
         [self removeChild:healthBar cleanup:YES];
     }
+}
+
+- (void)dealloc {
+    [healthBar release];
+    healthBar = nil;
+    
+    [super dealloc];
 }
 
 @end
@@ -44,6 +52,7 @@
         BaseAttributes *attributes = [BaseAttributes sharedAttributes];
         fish.curHp = attributes.totalHealth;
         fish.totalHp = attributes.totalHealth;
+        fish.availablePoints = attributes.blackbassPoint;
     }
     [fish schedule:@selector(healthBarLogic:)];
     
@@ -60,6 +69,7 @@
         BaseAttributes *attributes = [BaseAttributes sharedAttributes];
         fish.curHp = attributes.totalHealth;
         fish.totalHp = attributes.totalHealth;
+        fish.availablePoints = attributes.bluegillPoint;
     }
     [fish schedule:@selector(healthBarLogic:)];
     

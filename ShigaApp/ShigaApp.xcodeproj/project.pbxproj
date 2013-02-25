@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		513CD3C316DAE59A0033C6D5 /* health_bar_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 513CD3C116DAE59A0033C6D5 /* health_bar_green.png */; };
+		513CD3C416DAE59A0033C6D5 /* health_bar_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 513CD3C216DAE59A0033C6D5 /* health_bar_red.png */; };
 		998F60351644043E00FBF4CB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F60341644043E00FBF4CB /* QuartzCore.framework */; };
 		998F60371644043E00FBF4CB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F60361644043E00FBF4CB /* OpenGLES.framework */; };
 		998F60391644043E00FBF4CB /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F60381644043E00FBF4CB /* OpenAL.framework */; };
@@ -131,6 +133,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		513CD3C116DAE59A0033C6D5 /* health_bar_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = health_bar_green.png; sourceTree = "<group>"; };
+		513CD3C216DAE59A0033C6D5 /* health_bar_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = health_bar_red.png; sourceTree = "<group>"; };
 		998F60301644043E00FBF4CB /* ShigaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShigaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		998F60341644043E00FBF4CB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		998F60361644043E00FBF4CB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -450,6 +454,8 @@
 		998F60451644043F00FBF4CB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				513CD3C116DAE59A0033C6D5 /* health_bar_green.png */,
+				513CD3C216DAE59A0033C6D5 /* health_bar_red.png */,
 				99C2A482164BEF14001019BA /* fish3.png */,
 				99C635B2164AAB020021B415 /* fish2.png */,
 				99C635B0164AA55E0021B415 /* fish1.png */,
@@ -804,6 +810,8 @@
 				99C635B1164AA55E0021B415 /* fish1.png in Resources */,
 				99C635B3164AAB020021B415 /* fish2.png in Resources */,
 				99C2A483164BEF14001019BA /* fish3.png in Resources */,
+				513CD3C316DAE59A0033C6D5 /* health_bar_green.png in Resources */,
+				513CD3C416DAE59A0033C6D5 /* health_bar_red.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

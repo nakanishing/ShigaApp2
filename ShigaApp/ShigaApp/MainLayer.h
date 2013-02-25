@@ -24,6 +24,9 @@
     
     // コンボ数を表示するラベル
     CCLabelTTF *cmbLabel;
+    
+    // 合計点を表示するラベル
+    CCLabelTTF *totalPointLabel;
 }
 
 @property(nonatomic, retain) CCTMXTiledMap *tilemap;
