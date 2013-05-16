@@ -15,6 +15,8 @@
     int lastWaypoint;
     int availablePoints;
     
+    float atkPoint;
+    
     CCProgressTimer *healthBar;
 }
 
@@ -22,6 +24,7 @@
 @property (nonatomic) int totalHp;
 @property (nonatomic) int lastWaypoint;
 @property (nonatomic) int availablePoints;
+@property (nonatomic) float atkPoint;
 
 @property (nonatomic, retain) CCProgressTimer *healthBar;
 

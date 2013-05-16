@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "BaseAttributes.h"
 
 @interface MainLayer : CCLayer {
     CCTMXTiledMap *tilemap;
@@ -27,10 +28,19 @@
     
     // 合計点を表示するラベル
     CCLabelTTF *totalPointLabel;
+    
+    // いろいろなデフォルト値が定義されている
+    BaseAttributes *baseAttributes;
+    
+    // HPバー
+    CCProgressTimer *healthBar;
+    
+    float baseHpPercentage;
 }
 
 @property(nonatomic, retain) CCTMXTiledMap *tilemap;
 @property(nonatomic, retain) CCTMXLayer *background;
+
 
 +(CCScene *) scene;
 

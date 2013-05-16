@@ -9,6 +9,7 @@
 #import "MainLayer.h"
 #import "ForeignFish.h"
 #import "DataModel.h"
+#import "EndGame.h"
 
 @implementation MainLayer
 
@@ -18,6 +19,8 @@
 // タップされた魚
 NSMutableArray *touchedFish;
 int tempcombo = 0;
+bool barChange = NO;
+bool runEndAnimation = NO;
 
 + (CCScene *)scene {
 	// 'scene' is an autorelease object.
@@ -50,27 +53,40 @@ int tempcombo = 0;
         // 初期化
         [[DataModel alloc] init];
         
+        baseAttributes = [BaseAttributes sharedAttributes];
+
         tempcombo = 0;
         
         [self scheduleUpdate];
         
         // 何秒間隔で外来魚（敵）を発生させるか。
         // この間隔が狭いほどゲームの難易度があがるので、レベルによってintervalを変更するのがbest。
-        [self schedule:@selector(addFish) interval:1.0];
+        [self schedule:@selector(addFish) interval:0.5];
         
         touchedFish = [[NSMutableArray alloc] init];
-        cmbLabel = [[CCLabelTTF labelWithString:@"" fontName:@"Marker Felt" fontSize:32] retain];
-        cmbLabel.color = ccc3(0, 0, 0);
+        cmbLabel = [[CCLabelTTF labelWithString:@"" fontName:baseAttributes.fontName fontSize:32] retain];
+        cmbLabel.color = ccc3(30, 30, 30);
         
         CGSize winSize = [CCDirector sharedDirector].winSize;
-        cmbLabel.position = ccp(winSize.width / 6, winSize.height / 6);
+        cmbLabel.position = ccp(winSize.width / 2, winSize.height / 2);
         [self addChild:cmbLabel z:5];
         
         // 点数表示
-        totalPointLabel = [[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%010d", 0] fontName:@"Marker Felt" fontSize:30] retain];
-        totalPointLabel.color = ccc3(0, 0, 0);
-        totalPointLabel.position = ccp(winSize.width - totalPointLabel.contentSize.width / 2, winSize.height - 10);
+        totalPointLabel = [[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%010d", 0] fontName:baseAttributes.fontName fontSize:30] retain];
+        totalPointLabel.color = ccc3(30, 30, 30);
+        totalPointLabel.position = ccp(winSize.width - totalPointLabel.contentSize.width / 1.8, winSize.height - 15);
         [self addChild:totalPointLabel z:6];
+        
+        // HP
+        healthBar = [CCProgressTimer progressWithFile:@"health_bar_green.png"];
+        healthBar.type = kCCProgressTimerTypeHorizontalBarLR;
+        healthBar.percentage = baseHpPercentage;
+        healthBar.scale = 0.9;
+        healthBar.position = ccp(healthBar.contentSize.width / 2, winSize.height - 15);
+        [self addChild:healthBar z:7];
+        
+        baseHpPercentage = 100;
+        [healthBar setPercentage:baseHpPercentage];
     }
 
     return self;
@@ -83,11 +99,15 @@ int tempcombo = 0;
 - (void)update:(ccTime)dt {
     DataModel *m = [DataModel getModel];
     
+    
+    // TODO 一箇所で定義する
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    
     // 琵琶湖に到達した魚。
     NSMutableArray *reachedFish = [[NSMutableArray alloc] init];
     
     // 外来魚が琵琶湖の枠(frame)に当たったか判定する
-    for (CCSprite *fish in [m fishes]) {
+    for (ForeignFish *fish in [m fishes]) {
         CGRect fishRect = CGRectMake(fish.position.x - (fish.contentSize.width / 2),
                                        fish.position.y - (fish.contentSize.height / 2),
                                        fish.contentSize.width / 2,
@@ -104,12 +124,42 @@ int tempcombo = 0;
                 // コンボ数を初期値に戻す
                 m.combination = 0;
                 cmbLabel.opacity = 0x00;
+                
+                // HPを減らす
+                float prePercentage = baseHpPercentage;
+                baseHpPercentage -= fish.atkPoint;
+                
+                // 終了
+                if (baseHpPercentage <= 0 && runEndAnimation == NO) {
+                    runEndAnimation = YES;
+                    //CCLayer *endGameLayer = [[EndGame alloc] init];
+                    
+                    CCSprite *endGameLayer = [CCSprite spriteWithFile:@"endSprite.png"];
+                    endGameLayer.position = ccp(winSize.width + 100, winSize.height / 2);
+                    id actionMove = [CCMoveTo actionWithDuration:1.0 position:ccp(winSize.width / 2, winSize.height / 2)];
+                    id actionMoveDone = [CCCallFuncN actionWithTarget:self selector:@selector(pauseGame)];
+                    [endGameLayer runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
+                    
+                    [self addChild:endGameLayer z:1000];
+                    
+                    return;
+                }
+                
+                // HPが残り20%以下になったらバーを赤く
+                if (baseHpPercentage < 20 && barChange == NO) {
+                    [healthBar setSprite:[CCSprite spriteWithFile:@"health_bar_red.png"]];
+                    barChange = YES;
+                }
+                
+                [healthBar setPercentage:baseHpPercentage];
+                CCProgressFromTo *to = [CCProgressFromTo actionWithDuration:0.3f from:prePercentage to:baseHpPercentage];
+                [healthBar runAction:to];
             }
         }
     }
     
     // 侵入した魚を消す（TODO 徐々に小さく、透明にしていく）
-    for (CCSprite *fish in reachedFish) {
+    for (ForeignFish *fish in reachedFish) {
         [m.fishes removeObject:fish];
         [self removeChild:fish cleanup:YES];
     }
@@ -131,9 +181,8 @@ int tempcombo = 0;
         }
     }
     
+    // 得点
     [totalPointLabel setString:[NSString stringWithFormat:@"%010d", m.totalPoint]];
-    
-    
     [reachedFish release];
 
 }
@@ -217,6 +266,12 @@ int tempcombo = 0;
     }
         
     return fishPoints + bonusPoints;
+}
+
+- (void)pauseGame {
+    CCLayerColor *endGameLayer = [[[EndGame alloc] init] autorelease];
+    [self.parent addChild:endGameLayer z:10];
+    [[CCDirector sharedDirector] pause];
 }
 
 - (void)dealloc {

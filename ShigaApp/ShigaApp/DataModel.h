@@ -18,6 +18,9 @@
     // 点数
     int totalPoint;
     
+    // HP
+    float remainHealthPer;
+    
     UITapGestureRecognizer *gestureRecognizer;
 }
 

@@ -17,6 +17,7 @@
 @synthesize lastWaypoint;
 @synthesize healthBar;
 @synthesize availablePoints;
+@synthesize atkPoint;
 
 - (void)healthBarLogic:(ccTime)dt {
     healthBar.position = ccp(self.position.x, (self.position.y + 20));
@@ -53,6 +54,7 @@
         fish.curHp = attributes.totalHealth;
         fish.totalHp = attributes.totalHealth;
         fish.availablePoints = attributes.blackbassPoint;
+        fish.atkPoint = attributes.blackpassAtkPoint;
     }
     [fish schedule:@selector(healthBarLogic:)];
     
@@ -70,6 +72,7 @@
         fish.curHp = attributes.totalHealth;
         fish.totalHp = attributes.totalHealth;
         fish.availablePoints = attributes.bluegillPoint;
+        fish.atkPoint = attributes.bluegillAtkPoint;
     }
     [fish schedule:@selector(healthBarLogic:)];
     

@@ -17,23 +17,28 @@
 @synthesize blackbassPoint;
 @synthesize bluegillPoint;
 
-static BaseAttributes *sharedAttributes = nil;
+@synthesize blackpassAtkPoint;
+@synthesize bluegillAtkPoint;
+
+@synthesize fontName;
+
+static BaseAttributes *_sharedAttributes = nil;
 
 + (BaseAttributes *)sharedAttributes {
     @synchronized([BaseAttributes class]) {
-        if (!sharedAttributes) {
+        if (!_sharedAttributes) {
             [[self alloc] init];
         }
         
-        return sharedAttributes;
+        return _sharedAttributes;
     }
 }
 
 + (id)alloc {
     @synchronized([BaseAttributes class]) {
-        sharedAttributes = [super alloc];
+        _sharedAttributes = [super alloc];
         
-        return sharedAttributes;
+        return _sharedAttributes;
     }
 }
 
@@ -45,6 +50,11 @@ static BaseAttributes *sharedAttributes = nil;
         
         blackbassPoint = 100;
         bluegillPoint = 50;
+        
+        blackpassAtkPoint = 5.0;
+        bluegillAtkPoint = 2.0;
+        
+        fontName = @"STHeitiSC-Medium";
     }
     
     return self;
